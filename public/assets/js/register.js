@@ -1,5 +1,5 @@
 const passwordInput   = document.getElementById('password');
-const passwordInput2  = document.getElementById('password_2');
+const passwordConfirm  = document.getElementById('password-confirm');
 const showPassButton  = document.querySelector('.showPass');
 const showPassButton2 = document.querySelector('.showPass2');
 
@@ -11,8 +11,8 @@ passwordInput.addEventListener('input', () => {
     }
 });
 
-passwordInput2.addEventListener('input', () => {
-    if( passwordInput2.value.length >= 1 ) {
+passwordConfirm.addEventListener('input', () => {
+    if( passwordConfirm.value.length >= 1 ) {
         showPassButton2.style.display = 'block';
     } else {
         showPassButton2.style.display = 'none';
@@ -35,11 +35,11 @@ showPassButton.addEventListener('click', (e) => {
 showPassButton2.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if( passwordInput2.type === 'password' ) {
-        passwordInput2.type = 'text';
+    if( passwordConfirm.type === 'password' ) {
+        passwordConfirm.type = 'text';
         showPassButton2.innerHTML = '<i class="fa-regular fa-eye"></i>';
     } else {
-        passwordInput2.type = 'password';
+        passwordConfirm.type = 'password';
         showPassButton2.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
     }
 });
