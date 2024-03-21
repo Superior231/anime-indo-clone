@@ -98,13 +98,31 @@ const list = body.querySelectorAll(".list");
 
 // Back to Top
 const iconBackToTop = document.querySelector(".icon-back-to-top");
-
-window.addEventListener("scroll", () => {
-    if(window.pageYOffset > 100) {
-        iconBackToTop.classList.add("active");
+try {
+    if (iconBackToTop) {
+        window.addEventListener("scroll", () => {
+            if(window.pageYOffset > 100) {
+                iconBackToTop.classList.add("active");
+            }
+            else {
+                iconBackToTop.classList.remove("active");
+            }
+        });
     }
-    else {
-        iconBackToTop.classList.remove("active");
-    }
-})
+} catch (error) {
+    console.log('Fitur back to top tidak ditemukan!');
+}
 // Back to Top End
+
+
+
+
+// Input File Upload Color
+function updateTextColor(input) {
+    if (input.files.length > 0) {
+        input.classList.add('text-light');
+    }
+}
+// Input File Upload Color End
+
+  

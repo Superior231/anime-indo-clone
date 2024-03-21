@@ -1,8 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.auth', ['title' => 'Register'])
 
 @section('content')
-    <input type="hidden" value="{{ $title = 'Register' }}">
-
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

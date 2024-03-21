@@ -1,9 +1,7 @@
-@extends('layouts.auth')
+@extends('layouts.auth', ['title' => 'Login'])
 
 
-@section('content')
-    <input type="hidden" value="{{ $title = 'Login' }}">
-    
+@section('content')    
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -12,15 +10,7 @@
             <div class="pass-logo">
                 <i class='bx bx-envelope'></i>
             </div>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email"
-                aria-describedby="addon-wrapping" placeholder="Enter Email" value="{{ old('email') }}" autocomplete="email"
-                autofocus required>
-
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" aria-describedby="addon-wrapping" placeholder="Enter Email" value="{{ old('email') }}" autocomplete="email" autofocus required>
         </div>
 
         <label for="password" class="form-label">Password</label>
@@ -28,19 +18,18 @@
             <div class="pass-logo">
                 <i class='bx bx-lock-alt'></i>
             </div>
-            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-                id="password" placeholder="Enter Password" autocomplete="off" required>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Enter Password" autocomplete="off" required>
             <div class="pass-logo-pass" style="background-color: transparent;">
                 <div class="showPass" style="display: none;"><i class="fa-regular fa-eye-slash"></i></div>
             </div>
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
 
+        @error('email')
+            <span class="invalid-feedback" role="alert" style="display: block;">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        
         <div class="d-grid mt-4">
             <button type="submit" class="btn btn-primary btn-login" name="login_btn">Login</button>
         </div>
