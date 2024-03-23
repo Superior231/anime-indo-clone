@@ -1,4 +1,7 @@
-@extends('layouts.auth', ['title' => 'Register'])
+@extends('layouts.auth', [
+    'title' => 'Register',
+    'activePage' => 'register'
+    ])
 
 @section('content')
     <form method="POST" action="{{ route('register') }}">
@@ -73,6 +76,4 @@
             <label>Have an account? <a href="{{ route('login') }}" class="link">Login here!</a></label>
         </div>
     </form>
-
-    <script src="{{ url('/assets/js/register.js') }}"></script>
 @endsection
