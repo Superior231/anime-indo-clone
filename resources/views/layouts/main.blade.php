@@ -17,11 +17,11 @@
         <header>
             <div class="image-text">
                 <span class="image_1 ms-2">
-                    <a href=""><img src="{{ url('/assets/img/logo-login.png') }}" alt="logo" style="width: 50px;" class="logo" id="logoSide"></a>
+                    <a href="{{ route('index') }}"><img src="assets/img/logo-login.png" alt="logo" style="width: 50px;" class="logo" id="logoSide"></a>
                 </span>
 
                 <div class="text header-text">
-                    <span class="name"> &nbsp; <b class="text-light">Anime</b> <b style="color: #2196f3;">Indo</b></span>
+                    <span class="name"> &nbsp; <b class="text-light">Anime</b> <b class="nav-text-color">Indo</b></span>
                 </div>
             </div>
 
@@ -32,13 +32,13 @@
             <div class="menu">
                 <ul class="menu-links">
                     <li>
-                        <a href="" class="side-link {{ $active === 'home' ? 'active' : '' }}" title="Home">
+                        <a href="{{ url('/') }}" class="side-link {{ $active === 'home' ? 'active' : '' }}" title="Home">
                             <i class='bx bxs-home icon'></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="jadwal-tayang.html" class="side-link {{ $active === 'jadwal-tayang' ? 'active' : '' }}" title="Jadwal Tayang">
+                        <a href="{{ route('jadwal_tayang') }}" class="side-link {{ $active === 'jadwal-tayang' ? 'active' : '' }}" title="Jadwal Tayang">
                             <i class='bx bxs-calendar icon'></i>
                             <span class="text nav-text">Jadwal Tayang</span>
                         </a>
@@ -81,25 +81,18 @@
     @yield('content')
 
 
-    <!-- Back to Top -->
-    <div class="telegram">
-        <a class="icon-telegram" href="#"><i class='bx bxs-paper-plane fs-3'></i></a>
-    </div>
-    <!-- Back to Top End -->
-
-
     <!-- Nav Bottom -->
     <nav class="nav-bottom fixed-bottom">
         <ul>
             <li class="list {{ $active === 'home' ? 'active' : '' }}">
-                <a href="" title="Home">
+                <a href="{{ route('index') }}" title="Home">
                     <span class="icon">
                         <i class='bx bxs-home icon'></i>
                     </span>
                 </a>
             </li>
             <li class="list {{ $active === 'jadwal-tayang' ? 'active' : '' }}">
-                <a href="jadwal-tayang.html" title="Jadwal Tayang">
+                <a href="{{ route('jadwal_tayang') }}" title="Jadwal Tayang">
                     <span class="icon">
                         <i class='bx bxs-calendar icon'></i>
                     </span>

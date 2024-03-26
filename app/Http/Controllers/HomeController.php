@@ -23,6 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('pages.home.index', [
+            'title' => 'Anime Indo',
+            'active' => 'home'
+        ]);
+    }
+
+    public function jadwal_tayang()
+    {
+        return view('pages.home.jadwal-tayang', [
+            'title' => 'Anime Indo - Jadwal Tayang',
+            'active' => 'jadwal-tayang'
+        ]);
     }
 }

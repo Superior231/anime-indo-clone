@@ -95,6 +95,40 @@ const list = body.querySelectorAll(".list");
 
 
 
+// Tema
+const tema = document.querySelectorAll('.form-check-input');
+const temaStorageKey = 'selectedTheme';  // mendefinisikan variable untuk selectedTheme untuk menyimpan value tema
+
+try {
+    tema.forEach(input => {
+        input.addEventListener('click', function() {
+            document.body.className = '';
+            if (this.checked) {
+                document.body.classList.add(this.id);
+                localStorage.setItem(temaStorageKey, this.id);
+            }
+        });
+    });
+
+    // Ambil value tema yang sudah disimpan dari localStorage saat halaman dimuat
+    const savedTheme = localStorage.getItem(temaStorageKey);
+    
+    if (savedTheme) {
+        document.body.classList.add(savedTheme);
+        document.getElementById(savedTheme).checked = true;  // menyimpan posisi chacked berdasarkan id
+    }
+} catch (error) {
+    console.log("Fitur ganti tema tidak ditemukan!");
+}
+// Tema End
+
+
+
+
+
+
+
+
 
 // Back to Top
 const iconBackToTop = document.querySelector(".icon-back-to-top");
@@ -113,6 +147,96 @@ try {
     console.log('Fitur back to top tidak ditemukan!');
 }
 // Back to Top End
+
+
+
+// Title Anime
+const animeTitles = document.querySelectorAll(".card-title .anime-title");
+const maxLength = 25;
+const animeTitleNav = document.querySelector(".anime-title-nav");
+
+// Anime title count hidden
+// Menggunakan SelectorAll karena class anime-title lebih dari 1 dan menggunakan foreach agar dapat mengakses setiap element yang memiliki class anime-title
+animeTitles.forEach((animeTitle) => {
+    try {
+        if (animeTitle.textContent.length > maxLength) {
+            animeTitle.textContent = animeTitle.textContent.substring(0, maxLength) + "...";
+        }
+    } catch (error) {
+        console.log('Anime title count hidden tidak muncul!');
+    }
+});
+
+// Anime title count nav hidden
+try {
+    if (animeTitleNav.textContent.length > maxLength) {
+        animeTitleNav.textContent = animeTitleNav.textContent.substring(0, maxLength) + "...";
+    }
+} catch (error) {
+    console.log('Anime title nav tidak muncul!');
+}
+
+
+// Animasi scroll title anime
+try {
+    if (animeTitleNav) {
+        window.addEventListener("scroll", () => {
+            if(window.pageYOffset > 100) {
+                animeTitleNav.classList.add("active");
+            }
+            else {
+                animeTitleNav.classList.remove("active");
+            }
+        });
+    }
+} catch (error) {
+    console.log('Anime title nav tidak muncul!');
+}
+// Title Anime End
+
+
+// Subscribe Button
+const subsBtn = document.getElementById("subscribeBtn");
+const textSpan = document.querySelector(".subscribe-text");
+const icon = document.querySelector(".subscribe-icon");
+const toast = new bootstrap.Toast(document.getElementById('subscribeToast'));
+const toastText = document.getElementById('toastTextSubscribe');
+
+try {
+    function subscribed() {
+        if (textSpan.textContent === "Subscribe") {
+            textSpan.textContent = "Unsubscribe";
+            subsBtn.classList.add('active');
+            icon.classList.replace('bxs-bell', 'bxs-bell-ring');
+            toastText.innerHTML = "Anda berhasil subscribe.";
+        } else {
+            textSpan.textContent = "Subscribe";
+            subsBtn.classList.remove('active');
+            icon.classList.replace('bxs-bell-ring', 'bxs-bell');
+            toastText.innerHTML = "Anda berhasil unsubscribe.";
+        }
+        toast.show(); // Pindahkan pemanggilan show() ke sini
+    }
+    subsBtn.addEventListener("click", subscribed);
+} catch (error) {
+    console.log("Fitur subscribed tidak ditemukan!");
+}
+// Subscribe Button End
+
+
+// Episode Filter
+const filterBtn = document.getElementById("filterBtn");
+
+try {
+    function episodeFilter() {
+        filterBtn.classList.toggle('bx-rotate-180');
+    }
+
+    filterBtn.addEventListener("click", episodeFilter);
+} catch (error) {
+    console.log("Fitur filter episode tidak ditemukan!");
+}
+// Episode Filter End
 
 
 

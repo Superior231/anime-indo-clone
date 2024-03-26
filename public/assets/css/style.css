@@ -10,14 +10,14 @@
 :root {
   /* Color */
   --body-color: #090717;
-  --primary-color: #0d6efd;
+  --primary-color:  #0d6efd;
   --primary-color-light: #f6f5ff;
   --card-color: #161326;
   --sidebar-color: var(--card-color);
   --toggle-color: #ddd;
   --src-border-color: #707070;
   --input-box-shadow: #257cc4;
-  --card-hover: #e9ecef21;
+  --card-hover: #1b1731;
   --nav-bottom-icon-color: #f6f5ff;
   --bg-scroll-bar: #e4e9f7;
   --thumb-color: #b1b1b1;
@@ -40,10 +40,35 @@
 }
 
 body {
-  height: 100vh;
-  background: var(--body-color);
-  transition: var(--tran-05);
+  background-color: var(--body-color);
 }
+
+/* Tema */
+body.blue {
+  --primary-color: #0d6efd;
+  --text-color-primary: var(--primary-color);
+}
+body.green {
+  --primary-color: #198754;
+  --text-color-primary: var(--primary-color);
+}
+body.red {
+  --primary-color: #dc3545;
+  --text-color-primary: var(--primary-color);
+}
+body.pink {
+  --primary-color: #f33795;
+  --text-color-primary: var(--primary-color);
+}
+body.orange {
+  --primary-color: #fd7e14;
+  --text-color-primary: var(--primary-color);
+}
+body.purple {
+  --primary-color: #7F27FF;
+  --text-color-primary: var(--primary-color);
+}
+/* Tema End */
 
 
 /* Sidebar */
@@ -82,6 +107,9 @@ body {
   transition: var(--tran-03);
   white-space: nowrap;
   opacity: 1;
+}
+.sidebar .text .nav-text-color {
+  color: var(--text-color-primary);
 }
 .sidebar .image {
   min-width: 60px;
@@ -181,7 +209,11 @@ header .image-text .header-text {
 .sidebar.close ~ .subscribed-anime,
 .sidebar.close ~ .pricing,
 .sidebar.close ~ .pengaturan,
-.sidebar.close ~ .edit-akun {
+.sidebar.close ~ .edit-akun,
+.sidebar.close ~ .tampilan,
+.sidebar.close ~ .anime,
+.sidebar.close ~ section.genre,
+.sidebar.close ~ section.anime-tamat-page {
   left: 88px;
   width: calc(100% - 88px);
 }
@@ -194,6 +226,9 @@ header .image-text .header-text {
 }
 .container-fluid .nav-text {
   color: var(--text-color);
+}
+.container-fluid .nav-text-color {
+  color: var(--text-color-primary);
 }
 .container-fluid ul.navbar-nav.logo {
   margin-left: 20px;
@@ -210,6 +245,9 @@ header .image-text .header-text {
 .dropdown-menu.dropdown-menu-dark .dropdown-item:hover {
   color: var(--text-color-light);
 }
+.dropdown-menu.dropdown-menu-dark .dropdown-item:active {
+  background-color: var(--primary-color);
+}
 
 .navbar.navbar-expand-mobile {
   display: flex !important;
@@ -222,7 +260,7 @@ header .image-text .header-text {
   display: flex;
 }
 #search::placeholder {
-  color: var(--src-border-color);
+  color: var(--text-color);
 }
 
 @media (min-width: 200px) and (max-width: 767px) {
@@ -389,8 +427,8 @@ header .image-text .header-text {
 }
 
 input.form-control:focus {
-  box-shadow: 0 0 0 0.5px var(--input-box-shadow);
-  border-color: var(--input-box-shadow);
+  box-shadow: none;
+  border-color: var(--primary-color);
   background: transparent;
   color: var(--text-color-light);
 }
@@ -584,6 +622,10 @@ input.form-control:focus {
 .container-home {
   padding: 10px 45px;
 }
+.pengaturan-icon i {
+  color: var(--text-color-primary) !important;
+}
+
 .container-home .energy {
   background-color: var(--card-color);
   width: max-content;
@@ -605,6 +647,9 @@ input.form-control:focus {
 .container-home #price:hover .col:first-child {
   background-color: var(--card-hover);
   transition: var(--tran-03);
+}
+.container-home #price .title-premium {
+  color: var(--text-color-primary);
 }
 
 
@@ -713,11 +758,44 @@ input.form-control:focus {
   color: var(--primary-color);
   padding: 10px 20px;
   border-radius: 10px 10px 10px 1px;
+  font-size: clamp(10px, 2.5vw, 15px);
   font-weight: 600;
 }
 .genre-container > *:hover {
   background-color: var(--card-hover);
   transition: var(--tran-03);
+}
+
+@media (max-width: 768px) {
+  .genre-container > * {
+    padding: 8px 18px;
+  }
+}
+
+/* Genre dan Anime Tamat Page */
+section.genre,
+section.anime-tamat-page {
+  position: relative !important;
+  left: 300px;
+  width: calc(100% - 300px);
+  background: var(--body-color);
+  transition: var(--tran-05);
+}
+section.genre .container-genre,
+section.anime-tamat-page .container-anime-tamat-page {
+  padding: 70px 45px;
+}
+section.genre .nav-genre,
+section.anime-tamat-page .nav-anime-tamat-page {
+  background-color: transparent !important;
+  padding: 15px 45px;
+}
+section.genre .nav-genre .title-genre,
+section.anime-tamat-page .nav-anime-tamat-page .title-anime-tamat-page {
+  position: fixed;
+  left: 50%;
+  transform: translate( -50%);
+  
 }
 /* genre end */
 
@@ -889,6 +967,7 @@ input.form-control:focus {
 
 .sidebar-jadwal-tayang,
 .sidebar-katalog-anime {
+  background-color: var(--body-color);
   position: fixed;
   bottom: 0;
   right: 0;
@@ -908,12 +987,12 @@ input.form-control:focus {
 }
 .sidebar-jadwal-tayang ul li a:hover,
 .sidebar-katalog-anime ul li a:hover {
-  background-color: var(--primary-color);
+  background-color: var(--card-hover);
   color: var(--text-color-light);
 }
 .sidebar-jadwal-tayang ul li a.active,
 .sidebar-katalog-anime ul li a.active {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
   font-weight: 500;
 }
 
@@ -1065,7 +1144,6 @@ input.form-control:focus {
 
 
 
-
 /* Pengaturan */
 .container-pengaturan .pengaturan-content > *,
 .container-pengaturan .lainnya-content > * {
@@ -1093,18 +1171,26 @@ input.form-control:focus {
 }
 /* Pengaturan End */
 
-/* Edit Akun */
-.edit-akun {
+/* Edit Akun, Tampilan */
+.edit-akun,
+.tampilan {
   position: relative !important;
   left: 300px;
   width: calc(100% - 300px);
   background: var(--body-color);
   transition: var(--tran-05);
 }
-.edit-akun .title-edit-akun {
+.edit-akun .title-edit-akun,
+.tampilan .title-tampilan {
   padding: 25px 45px 0px 45px;
 }
-.title-edit-akun .breadcrumb .breadcrumb-item {
+.title-edit-akun .breadcrumb .breadcrumb-item a,
+.title-tampilan .breadcrumb .breadcrumb-item a {
+  color: var(--text-color-primary);
+  font-weight: 600;
+}
+.title-edit-akun .breadcrumb .breadcrumb-item.active,
+.title-tampilan .breadcrumb .breadcrumb-item.active {
   color: var(--text-color-light);
   font-weight: 600;
 }
@@ -1113,7 +1199,8 @@ input.form-control:focus {
   font-weight: 700;
 }
 
-.container-edit-akun {
+.container-edit-akun,
+.container-tampilan {
   padding: 10px 45px;
 }
 .container-edit-akun .card {
@@ -1136,7 +1223,6 @@ input.form-control:focus {
   border: none;
   padding: 3px;
 }
-
 
 .container-edit-akun .edit-banner,
 .container-edit-akun .edit-profile,
@@ -1184,16 +1270,44 @@ input.form-control:focus {
 }
 
 input[type="file"]::-webkit-file-upload-button {
-  background: var(--primary-color);
+  background: var(--text-color);
 }
 input[type="file"]:hover::-webkit-file-upload-button {
-  background: transparent !important;
+  background: var(--primary-color) !important;
+  transition: var(--tran-03);
 }
 input[type="file"]::-webkit-file-upload-button {
   color: var(--text-color-light);
 }
-/* Edit Akun End */
 
+
+/* Tampilan */
+.tampilan .container-tampilan .warna-content {
+  display: flex;
+  gap: 10px;
+}
+.tampilan .container-tampilan .warna-content .form-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tampilan .container-tampilan .warna-content input[type="radio"] {
+  border: 2px solid var(--text-color-light);
+  margin-top: 0px;
+  padding: 15px;
+}
+.tampilan .container-tampilan .warna-content input[type="radio"]:hover,
+.tampilan .container-tampilan .warna-content input[type="radio"]:checked {
+  border-color: var(--text-color-light);
+  box-shadow: none;
+}
+
+@media (max-width: 320px) {
+  .tampilan .container-tampilan .warna-content input[type="radio"] {
+    padding: 12px;
+  }
+}
+/* Edit Akun, Tampilan End */
 
 
 
@@ -1255,6 +1369,56 @@ input[type="file"]::-webkit-file-upload-button {
   .musik-lainnya .gambar {
     width: 60px;
     height: 60px;
+  }
+}
+
+
+.actions .search-music-box {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  border-radius: 50px;
+  padding: 5px 10px;
+  gap: 4px;
+}
+.actions .search-music-box i {
+  color: var(--text-color);
+  margin-top: 1px;
+}
+.actions .search-music-box:focus-within {
+  border-color: var(--primary-color);
+  transition: var(--tran-03);
+}
+.actions .search-music-box:focus-within i {
+  color: var(--text-color-primary);
+  transition: var(--tran-03);
+}
+.actions .search-music-box input {
+  width: clamp(100px, 35vw, 200px);
+  background-color: transparent;
+  border: none;
+  color: var(--text-color-light);
+  margin-left: 10px;
+}
+.actions .search-music-box input:focus {
+  border: none;
+  outline: none;
+}
+
+.error-img {
+  position: relative;
+  width: clamp(100px, 50vw, 300px);
+  right: 16px !important;
+}
+
+@media (max-width: 768px) {
+  .actions .search-music-box i,
+  .actions .search-music-box input {
+    font-size: clamp(10px, 3.5vw, 15px);
+  }
+  .actions .search-music-box input {
+    margin-left: 5px;
   }
 }
 /* Musik End */
@@ -1353,9 +1517,13 @@ input[type="file"]::-webkit-file-upload-button {
   .subscribed-anime,
   .pricing,
   .pengaturan,
-  .edit-akun {
+  .edit-akun,
+  .tampilan,
+  .anime,
+  section.genre,
+  section.anime-tamat-page {
     display: contents;
-    height: 20vh;
+    /* height: 20vh; */
   }
   .home .navbar,
   .jadwal-tayang .navbar,
@@ -1364,7 +1532,11 @@ input[type="file"]::-webkit-file-upload-button {
   .subscribed-anime .navbar,
   .pricing .navbar,
   .pengaturan .navbar,
-  .edit-akun .navbar {
+  .edit-akun .navbar,
+  .tampilan .navbar,
+  .anime .navbar,
+  section.genre .navbar,
+  section.anime-tamat-page .navbar {
     position: fixed;
     width: 100%;
   }
@@ -1379,7 +1551,10 @@ input[type="file"]::-webkit-file-upload-button {
   .subscribed-anime .title-subscribed-anime,
   .pricing .title-pricing,
   .pengaturan .title-pengaturan,
-  .edit-akun .title-edit-akun {
+  .edit-akun .title-edit-akun,
+  .tampilan .title-tampilan,
+  section.genre .nav-genre,
+  section.anime-tamat-page .nav-anime-tamat-page {
     background-color: var(--body-color);
     padding: 70px 15px 10px 15px;
   }
@@ -1389,9 +1564,14 @@ input[type="file"]::-webkit-file-upload-button {
   .subscribed-anime .container-subscribed-anime,
   .pricing .container-pricing,
   .pengaturan .container-pengaturan,
-  .edit-akun .container-edit-akun {
+  .edit-akun .container-edit-akun,
+  .tampilan .container-tampilan {
     background-color: var(--body-color);
     padding: 0px 15px;
+  }
+  section.genre .container-genre,
+  section.anime-tamat-page .container-anime-tamat-page {
+    padding: 120px 15px;
   }
 }
 /* Responsif dan Tampilan pada Handphone End */
@@ -1399,6 +1579,13 @@ input[type="file"]::-webkit-file-upload-button {
 
 
 /* Text */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border: none !important;
+}
+.text-primary {
+  color: var(--text-color-primary) !important;
+}
 .text-color {
   color: var(--text-color);
 }
@@ -1428,7 +1615,8 @@ h6.text-size {
   font-size: clamp(13px, 2.5vw, 17px);
 }
 
-span.text-size {
+span.text-size,
+p.text-size {
   font-size: clamp(10px, 2.5vw, 15px);
 }
 
