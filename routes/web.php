@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+// Users
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/jadwal-tayang', [HomeController::class, 'jadwal_tayang'])->name('jadwal_tayang');
+Route::get('/katalog-anime', [HomeController::class, 'katalog_anime'])->name('katalog_anime');
+Route::get('/riwayat-menonton', [HomeController::class, 'riwayat_menonton'])->name('riwayat_menonton');
+Route::get('/subscribed-anime', [HomeController::class, 'subscribed_anime'])->name('subscribed_anime');
+Route::get('/pengaturan', [HomeController::class, 'pengaturan'])->name('pengaturan');
+Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 

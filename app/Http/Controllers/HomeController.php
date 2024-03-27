@@ -36,4 +36,44 @@ class HomeController extends Controller
             'active' => 'jadwal-tayang'
         ]);
     }
+
+    public function katalog_anime()
+    {
+        return view('pages.home.katalog-anime', [
+            'title' => 'Anime Indo - Katalog Anime',
+            'active' => 'katalog-anime'
+        ]);
+    }
+
+    public function riwayat_menonton()
+    {
+        return view('pages.home.riwayat-menonton', [
+            'title' => 'Anime Indo - Riwayat Menonton',
+            'active' => 'riwayat-menonton'
+        ]);
+    }
+
+    public function subscribed_anime()
+    {
+        return view('pages.home.subscribed-anime', [
+            'title' => 'Anime Indo - Subscribed Anime',
+            'active' => 'subscribed-anime'
+        ]);
+    }
+
+    public function pengaturan()
+    {
+        return view('pages.home.pengaturan', [
+            'title' => 'Anime Indo - Pengaturan',
+            'active' => 'pengaturan'
+        ]);
+    }
+
+    public function pricing()
+    {
+        return view('pages.home.pricing', [
+            'title' => 'Anime Indo - Pricing',
+            'active' => 'pricing'
+        ]);
+    }
 }

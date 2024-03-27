@@ -16,21 +16,21 @@
             </a>
         </li>
         <li class="list {{ $active === 'katalog-anime' ? 'active' : '' }}">
-            <a href="katalog-anime.html" title="Katalog Anime">
+            <a href="{{ route('katalog_anime') }}" title="Katalog Anime">
                 <span class="icon">
                     <i class='bx bx-list-ul icon'></i>
                 </span>
             </a>
         </li>
         <li class="list {{ $active === 'riwayat-menonton' ? 'active' : '' }}">
-            <a href="riwayat-menonton.html" title="Riwayat Menonton">
+            <a href="{{ route('riwayat_menonton') }}" title="Riwayat Menonton">
                 <span class="icon">
                     <i class='bx bx-history icon'></i>
                 </span>
             </a>
         </li>
         <li class="list {{ $active === 'subscribed-anime' ? 'active' : '' }}">
-            <a href="subscribed-anime.html" title="Subscribed Anime">
+            <a href="{{ route('subscribed_anime') }}" title="Subscribed Anime">
                 <span class="icon">
                     <i class='bx bxs-bell icon'></i>
                 </span>

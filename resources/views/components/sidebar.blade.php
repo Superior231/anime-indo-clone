@@ -30,19 +30,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="katalog-anime.html" class="side-link {{ $active === 'katalog-anime' ? 'active' : '' }}" title="Katalog Anime">
+                    <a href="{{ route('katalog_anime') }}" class="side-link {{ $active === 'katalog-anime' ? 'active' : '' }}" title="Katalog Anime">
                         <i class='bx bx-list-ul icon'></i>
                         <span class="text nav-text">Katalog Anime</span>
                     </a>
                 </li>
                 <li>
-                    <a href="riwayat-menonton.html" class="side-link {{ $active === 'riwayat-menonton' ? 'active' : '' }}" title="Riwayat Menonton">
+                    <a href="{{ route('riwayat_menonton') }}" class="side-link {{ $active === 'riwayat-menonton' ? 'active' : '' }}" title="Riwayat Menonton">
                         <i class='bx bx-history icon'></i>
                         <span class="text nav-text">Riwayat Menonton</span>
                     </a>
                 </li>
                 <li>
-                    <a href="subscribed-anime.html" class="side-link {{ $active === 'subscribed-anime' ? 'active' : '' }}" title="Subscribed Anime">
+                    <a href="{{ route('subscribed_anime') }}" class="side-link {{ $active === 'subscribed-anime' ? 'active' : '' }}" title="Subscribed Anime">
                         <i class='bx bxs-bell icon'></i>
                         <span class="text nav-text">Subscribed Anime</span>
                     </a>
@@ -52,7 +52,7 @@
 
         <div class="bottom-content position-absolute bottom-0 mb-2">
             <li class="account">
-                <a href="#" title="Pengaturan">
+                <a href="{{ route('pengaturan') }}" title="Pengaturan">
                     <i class='bx bxs-cog icon'></i>
                     <span class="text nav-text">Pengaturan</span>
                     <i class='bx bx-chevron-right icon text nav-text mx-auto me-0'></i>

@@ -1,10 +1,11 @@
 const passwordInput   = document.getElementById('password');
-const passwordInput2  = document.getElementById('password-confirm');
+const passwordInput2  = document.getElementById('password_2');
 const showPassButton  = document.querySelector('.showPass');
 const showPassButton2 = document.querySelector('.showPass2');
 
 const loginPage = document.body.classList.contains('login');
 const registerPage = document.body.classList.contains('register');
+
 
 // Login
 function login(passwordInput, showPassButton) {
@@ -82,7 +83,6 @@ function register(passwordInput, passwordInput2, showPassButton, showPassButton2
         console.log("fitur register tidak ditemukan!");
     }
 }
-
 
 
 // Pengkondisian penggunaan functions berdasarkan halamann yang active

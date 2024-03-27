@@ -35,7 +35,7 @@
                 </a>
                 <div class="row">
                     <div class="col d-flex align-items-center">
-                        <a href="#" title="Pengaturan">
+                        <a href="{{ route('pengaturan') }}" title="Pengaturan">
                             <i class='bx bxs-cog icon fs-2 text-primary'></i>
                         </a>
                     </div>
@@ -45,12 +45,12 @@
 
             <!-- Premium Card -->
             <div class="row row-cols-2 d-flex align-items-center mt-4 mx-0" id="price">
-                <a href="#" class="col d-flex flex-column text-decoration-none">
+                <a href="{{ route('pricing') }}" class="col d-flex flex-column text-decoration-none">
                     <span class="text-primary fw-bold"><i class="fa-solid fa-gem"></i>&nbsp; Premium</span>
                     <span class="text-light">Capek liat iklan?</span>
                     <span class="text-light">Ayo Beli Premium</span>
                 </a>
-                <a href="#" class="col d-flex flex-column text-decoration-none">
+                <a href="{{ route('pricing') }}" class="col d-flex flex-column text-decoration-none">
                     <span class="text-light">Harga mulai dari 12 ribu</span>
                     <span class="text-light">Tekan disini!</span>
                 </a>
