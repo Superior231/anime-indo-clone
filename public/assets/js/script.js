@@ -248,5 +248,3 @@ function updateTextColor(input) {
     }
 }
 // Input File Upload Color End
-
-  

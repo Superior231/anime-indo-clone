@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -66,6 +67,14 @@ class HomeController extends Controller
         return view('pages.home.pengaturan', [
             'title' => 'Anime Indo - Pengaturan',
             'active' => 'pengaturan'
+        ]);
+    }
+
+    public function tampilan()
+    {
+        return view('pages.home.tampilan', [
+            'title' => 'Anime Indo - Tampilan',
+            'active' => 'tampilan'
         ]);
     }
 

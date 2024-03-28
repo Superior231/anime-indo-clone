@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('roles', ['admin', 'user', 'premium'])->default('user');
+            $table->enum('roles', ['admin', 'Wibu Biasa', 'Wibu Premium'])->default('Wibu Biasa');
+            $table->string('avatar')->nullable();
+            $table->string('banner')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,5 +1,5 @@
 const passwordInput   = document.getElementById('password');
-const passwordInput2  = document.getElementById('password_2');
+const passwordInput2  = document.getElementById('password-confirm');
 const showPassButton  = document.querySelector('.showPass');
 const showPassButton2 = document.querySelector('.showPass2');
 

@@ -573,6 +573,7 @@ input.form-control:focus {
   position: inherit;
 }
 
+
 @media (min-width: 768px) {
   .banner-mobile {
     display: none;
@@ -632,10 +633,30 @@ input.form-control:focus {
   padding: 10px 20px;
   border-radius: 10px 10px 10px 1px;
 }
+
 .container-home .profile .akun:hover {
   background-color: #e9ecef36;
   border-radius: 10px 10px 10px 1px;
   transition: var(--tran-05);
+}
+
+.navbar-nav .nav-item .profile-image {
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+.profile .profile-image {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+.navbar-nav .nav-item .profile-image img,
+.profile .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .container-home #price .col:first-child {
@@ -1215,7 +1236,7 @@ section.anime-tamat-page .nav-anime-tamat-page .title-anime-tamat-page {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50px;
 }
 .container-edit-akun .card .profile-details table tr td {
   background-color: transparent;
@@ -1264,9 +1285,51 @@ section.anime-tamat-page .nav-anime-tamat-page .title-anime-tamat-page {
   box-shadow: none;
 }
 
+.modal .modal-content .modal-body .edit-banner {
+  aspect-ratio: 16/6;
+  overflow: hidden;
+}
 .modal .modal-content .modal-body .edit-banner img {
   width: 100%;
-  aspect-ratio: 16/6;
+  height: 100%;
+}
+
+.modal .modal-content .modal-body .profile .foto-profile {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.modal .modal-content .modal-body .profile .foto-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal .modal-content .reset-btn {
+  display: flex;
+  position: absolute;
+  justify-content: end;
+  padding: 0px;
+  margin: 0px;
+  top: 80px;
+  right: 16px;
+  z-index: 2;
+}
+.modal .modal-content .reset-btn button {
+  padding: 5px 20px !important;
+  background-color: rgba(225,225,225,0.3);
+  color: var(--text-color-light);
+  border: none;
+}
+.modal .modal-content .reset-btn button:hover {
+  background-color: var(--primary-color);
+  transition: var(--tran-03);
+}
+@media (max-width: 450px) {
+  .modal .modal-content .reset-btn {
+    top: 70px;
+  }
 }
 
 input[type="file"]::-webkit-file-upload-button {

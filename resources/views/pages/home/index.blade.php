@@ -5,11 +5,11 @@
         @include('components.navbar')
 
         <div class="banner">
-            <img src="{{ url('/assets/img/solofeast.webp') }}" width="100%" alt="banner">
+            <img src="{{ !empty(Auth::user()->banner) ? asset('storage/banners/'.Auth::user()->banner) : asset('/assets/img/banner.png') }}" width="100%" alt="banner">
         </div>
 
         <div class="banner-mobile">
-            <img src="{{ url('/assets/img/solofeast.webp') }}" width="100%" alt="banner" class="mt-5">
+            <img src="{{ !empty(Auth::user()->banner) ? asset('storage/banners/'.Auth::user()->banner) : asset('/assets/img/banner.png') }}" width="100%" alt="banner" class="mt-5">
         </div>
 
         <!-- Home -->
@@ -20,12 +20,10 @@
 
             <!-- User Info -->
             <div class="profile d-flex justify-content-between mt-5">
-                <a href="#" class="row d-flex text-decoration-none akun">
+                <a href="{{ route('akun') }}" class="row d-flex text-decoration-none akun">
                     <div class="col d-flex gap-3 w-100">
                         <div class="profile-image">
-                            <img class="img"
-                                src="https://ui-avatars.com/api/?background=random&name={{ Auth::user()->name }}"
-                                width="50px" style="border-radius: 50%;">
+                            <img class="img" src="{{ !empty(Auth::user()->avatar) ? asset('storage/avatars/'.Auth::user()->avatar) : 'https://ui-avatars.com/api/?background=random&name='. urlencode(Auth::user()->name) }}">
                         </div>
                         <div class="user-info d-flex flex-column">
                             <span class="text-secondary fs-6">Welcome,</span>
@@ -92,15 +90,61 @@
             </div>
             <!-- Recent End -->
 
+            <!-- Genre -->
+            <div class="genre py-3">
+                <div class="title">
+                    <h3 class="text-light text-size fw-bold">Genre</h3>
+                </div>
+                <div class="genre-container d-flex align-items-center gap-2">
+                    <a href="#">Movie</a>
+                    <a href="genre.html">Action</a>
+                    <a href="#">Adventure</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Demons</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Ec*hi</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Game</a>
+                    <a href="#">Harem</a>
+                    <a href="#">Historical</a>
+                    <a href="#">Horror</a>
+                    <a href="#">Josei</a>
+                    <a href="#">Magic</a>
+                    <a href="#">Martial Arts</a>
+                    <a href="#">Mecha</a>
+                    <a href="#">Military</a>
+                    <a href="#">Music</a>
+                    <a href="#">Mystery</a>
+                    <a href="#">Psychological</a>
+                    <a href="#">Parody</a>
+                    <a href="#">Police</a>
+                    <a href="#">Romance</a>
+                    <a href="#">Samurai</a>
+                    <a href="#">School</a>
+                    <a href="#">Sci-Fi</a>
+                    <a href="#">Seinen</a>
+                    <a href="#">Shoujo</a>
+                    <a href="#">Shoujo Ai</a>
+                    <a href="#">Shounen</a>
+                    <a href="#">Slice of Life</a>
+                    <a href="#">Sports</a>
+                    <a href="#">Space</a>
+                    <a href="#">Super Power</a>
+                    <a href="#">Supernatural</a>
+                    <a href="#">Thriller</a>
+                    <a href="#">Vampire</a>
+                </div>
+            </div>
+            <!-- Genre End -->
+
             <!-- Action -->
             <div class="action">
                 <div class="actions d-flex justify-content-between align-items-center">
                     <div class="title d-flex gap-1 mt-3">
                         <h3 class="text-light text-size fw-bold">Episode Terbaru</h3>
-                        <a href=""><i class="fa-solid fa-rotate-right fs-4 mt-0 mt-lg-1"></i></a>
+                        <a href=""><i class="fa-solid fa-rotate-right text-primary fs-4 mt-0 mt-lg-1"></i></a>
                     </div>
-                    <a href="{{ route('jadwal_tayang') }}"
-                        class="lihat-jadwal text-decoration-none d-flex align-items-center gap-1">
+                    <a href="jadwal-tayang.html" class="lihat-jadwal text-decoration-none d-flex align-items-center gap-1">
                         <span class="text-light text-size fw-bold">Lihat Jadwal</span>
                         <i class="fa-solid fa-chevron-right text-light"></i>
                     </a>
@@ -113,7 +157,7 @@
                 <div class="row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
                     <a href="anime.html" class="col text-decoration-none">
                         <div class="card text-white" style="background-color: transparent;">
-                            <img src="{{ url('/assets/img/mashle-s2.webp') }}" class="card-img" alt="anime">
+                            <img src="/assets/img/mashle-s2.webp" class="card-img" alt="anime">
                             <div class="card-img-overlay px-0 py-0">
                                 <div class="header">
                                     <span class="update-info">New</span>
@@ -137,7 +181,7 @@
 
                     <a href="#" class="col text-decoration-none">
                         <div class="card text-white" style="background-color: transparent;">
-                            <img src="{{ url('/assets/img/bucchigiri.webp') }}" class="card-img" alt="anime">
+                            <img src="/assets/img/bucchigiri.webp" class="card-img" alt="anime">
                             <div class="card-img-overlay px-0 py-0">
                                 <div class="header">
                                     <span class="update-info">New</span>
@@ -161,7 +205,7 @@
 
                     <a href="#" class="col text-decoration-none">
                         <div class="card text-white" style="background-color: transparent;">
-                            <img src="{{ url('/assets/img/solo-leveling.webp') }}" class="card-img" alt="anime">
+                            <img src="/assets/img/solo-leveling.webp" class="card-img" alt="anime">
                             <div class="card-img-overlay px-0 py-0">
                                 <div class="header">
                                     <span class="update-info">New</span>
@@ -329,8 +373,7 @@
 
                     <a href="#" class="col text-decoration-none">
                         <div class="card text-white" style="background-color: transparent;">
-                            <img src="/assets/img/boku-no-kokoro-no-yabai-yatsu-season-2.webp" class="card-img"
-                                alt="anime">
+                            <img src="/assets/img/boku-no-kokoro-no-yabai-yatsu-season-2.webp" class="card-img" alt="anime">
                             <div class="card-img-overlay px-0 py-0">
                                 <div class="header">
                                     <span class="update-info">New</span>
@@ -409,7 +452,7 @@
                 <h3 class="text-light text-size fw-bold my-0">Sedang Populer</h3>
             </div>
             <!-- Action End -->
-
+            
             <!-- Sedang Populer -->
             <div class="anime-populer py-0 py-lg-3">
                 <div class="row anime-content d-flex justify-content-center g-2 g-lg-3">
@@ -461,8 +504,7 @@
 
                     <a href="#" class="col text-decoration-none">
                         <div class="card text-white" style="background-color: transparent;">
-                            <img src="/assets/img/my-instant-death-ability-is-overpowered.webp" class="card-img"
-                                alt="anime">
+                            <img src="/assets/img/my-instant-death-ability-is-overpowered.webp" class="card-img" alt="anime">
                             <div class="card-img-overlay px-0 py-0">
                                 <div class="header d-flex justify-content-end">
                                     <span class="rate text-light"><i class="fa-solid fa-star fa-xs"></i>6.3</span>
@@ -658,7 +700,7 @@
             <!-- Action -->
             <div class="title d-flex justify-content-between align-items-center mt-3 mb-2">
                 <h3 class="text-light text-size fw-bold my-0">Anime Tamat</h3>
-                <a href="jadwal-tayang.html" class="lihat-jadwal text-decoration-none d-flex align-items-center gap-1">
+                <a href="anime-tamat.html" class="lihat-jadwal text-decoration-none d-flex align-items-center gap-1">
                     <span class="text-light text-size fw-bold">Lihat Semua</span>
                     <i class="fa-solid fa-chevron-right text-light"></i>
                 </a>

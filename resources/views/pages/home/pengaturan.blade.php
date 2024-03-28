@@ -12,7 +12,7 @@
         <!-- Content -->
         <div class="container-pengaturan pb-5">
             <div class="pengaturan-content d-flex flex-column gap-2 py-3">
-                <a href="akun.html" class="edit-profile text-decoration-none py-4">
+                <a href="{{ route('akun') }}" class="edit-profile text-decoration-none py-4">
                     <div class="row d-flex justify-content-between">
                         <div class="col col-11 d-flex align-items-center gap-4">
                             <i class='bx bxs-user text-light fs-2 icon'></i>
@@ -27,7 +27,7 @@
                     </div>
                 </a>
 
-                <a href="tampilan.html" class="appearance text-decoration-none py-4">
+                <a href="{{ route('tampilan') }}" class="appearance text-decoration-none py-4">
                     <div class="row d-flex justify-content-between">
                         <div class="col col-11 d-flex align-items-center gap-4">
                             <i class='bx bxs-palette text-light fs-2 icon'></i>

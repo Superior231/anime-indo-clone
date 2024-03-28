@@ -41,14 +41,16 @@
 
             <ul class="navbar-nav mx-0 me-4 ms-auto my-1" id="dropdown">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle d-flex align-items-center text-light" href="#" id="navbarDropdownMenuLink"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="img" src="https://ui-avatars.com/api/?background=random&name={{ Auth::user()->name }}" width="26px" style="border-radius: 50%;">
+                        <div class="profile-image">
+                            <img class="img" src="{{ !empty(Auth::user()->avatar) ? asset('storage/avatars/'.Auth::user()->avatar) : 'https://ui-avatars.com/api/?background=random&name='. urlencode(Auth::user()->name) }}">
+                        </div>
                         <span class="nav-text text-light">&nbsp;{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">My profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('akun') }}">My profile</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider-light py-0 my-1">
